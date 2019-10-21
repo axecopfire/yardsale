@@ -39,15 +39,22 @@ init.prototype.ShowCat = function (cat) {
 }
 
 init.prototype._listItem = function (el) {
-    var li = crEl("li");
-    var desc = crEl("p");
-    var name = crEl("h4");
-
+    var li = crEl("li"),
+        name = crEl("h4"),
+        desc = crEl("p"),
+        img = crEl("img"),
+        id = el.name.toLowerCase();
+        id= id.replace(new RegExp(" ", 'g'), "-");
+        
+    if(el.img) img.src = el.img;
     name.textContent = "" + el.name;
     desc.textContent = "     " + el.desc;
     li.classList.add("item");
+    li.id = id;
+    li.appendChild(img);
     li.appendChild(name);
-    // li.appendChild(desc);
+    li.appendChild(desc);
+
     return li;
 }
 
