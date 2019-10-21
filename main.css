@@ -1,6 +1,5 @@
 body, h1, h2, h3, h4, p, section, div {
     margin: 0;
-    font-size: 1em;
     background-color: white;
 }
 body {
@@ -28,6 +27,16 @@ h2 {
     display: block;
     margin: 0 auto;
     max-width: 50vw;
+}
+li {
+    margin-bottom: 10px;
+}
+li>h4 {
+    padding-bottom: 5px;
+    font-size: 1rem;
+}
+li>p {
+
 }
 
 @media(min-width: 700px) {
