@@ -1,25 +1,55 @@
 function init () {};
-
 var Component = new init();
 
 init.prototype.listAll = function () {
     var ul = crEl("ul");
-    data.forEach(function(el) {
-        var p = crEl("p")
-        var h4 = crEl("h4");
-        var li = crEl("li");
-        var name = h4;
-        var desc = p;
-        name.textContent = "" + el.name;
-        desc.textContent = "     " + el.desc;
-        var item = li;
-        item.classList.add("item");
-        item.appendChild(name);
-        // item.appendChild(desc);
-        ul.appendChild(item);
+    var self = this;
+
+    data.forEach(function (el) { 
+        ul.appendChild(self._listItem(el));
     });
+
     return ul;
 };
+
+init.prototype.CatList = function () {
+    var ul = crEl("ul");
+    var self = this;
+
+    data.forEach(function (el) { 
+        ul.appendChild(self._listItem(el)); 
+    });
+    return ul;
+}
+
+init.prototype.ShowCat = function (cat) {
+    var ul = crEl("ul");
+    var self = this;
+    data.forEach(function (el) {
+        if(el.cat) {
+            for(var i = 0; i < el.cat.length; i ++) {
+                if(el.cat[i] === cat) {
+                    ul.appendChild(self._listItem(el));
+                }
+            }
+        }
+    });
+
+    return ul;
+}
+
+init.prototype._listItem = function (el) {
+    var li = crEl("li");
+    var desc = crEl("p");
+    var name = crEl("h4");
+
+    name.textContent = "" + el.name;
+    desc.textContent = "     " + el.desc;
+    li.classList.add("item");
+    li.appendChild(name);
+    // li.appendChild(desc);
+    return li;
+}
 
 init.prototype.CatButts = function () {
     return this.createCatButts();

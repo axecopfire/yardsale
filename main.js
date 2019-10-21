@@ -1,8 +1,22 @@
 window.onload = function () {    
-    // List of all
-    document.querySelector(".stuff").appendChild(Component.listAll());
+    var stuff = document.querySelector(".stuff")
+    var cat = document.querySelector(".cat")
 
-    // List by category Buttons
-    console.log(Component.CatButts())
-    // document.querySelector(".cat").appendChild(Component.CatButts());
+    // On load list all and load category buttons
+    stuff.appendChild(Component.listAll());
+    cat.appendChild(Component.CatButts());
+
+    document.getElementById("all").addEventListener("click", function(event) {
+        stuff.innerHTML = "";
+        stuff.appendChild(Component.listAll());
+    });
+
+    // console.log(Component.CatButts());
+    cat.addEventListener("click", function(event) {
+        if(event.target.id)  {
+            stuff.innerHTML = "";
+            stuff.appendChild(Component.ShowCat(event.target.id));
+        }
+    });
+
 }
