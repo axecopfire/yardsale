@@ -47,8 +47,8 @@ init.prototype._listItem = function (el) {
         id= id.replace(new RegExp(" ", 'g'), "-");
         
     if(el.img) img.src = el.img;
+    if(el.desc) desc.textContent = "     " + el.desc;
     name.textContent = "" + el.name;
-    desc.textContent = "     " + el.desc;
     li.classList.add("item");
     li.id = id;
     li.appendChild(img);
