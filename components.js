@@ -22,10 +22,29 @@ init.prototype.listAll = function () {
 };
 
 init.prototype.CatButts = function () {
+    return this.createCatButts();
+}
+
+
+init.prototype.createCatButts = function () {
     
     // make an array of just categories
     
-    _jankHash(_clowder());
+    var catYarn = _jankHash(_clowder());
+    var ul = crEl("ul");
+    
+    catYarn.forEach(function(cat) {
+        var li = crEl("li");
+        var btn = crEl("button");
+
+        btn.textContent = cat;
+        btn.id = cat;
+        li.appendChild(btn);
+        ul.appendChild(li)
+    })
+
+    return ul;
+    
     
     function _jankHash (arr, length = 20) {
         var result = new Array(length);
@@ -35,6 +54,10 @@ init.prototype.CatButts = function () {
                 result[hashed] = val; 
             }
 
+        });
+
+        result = result.filter(function (val) {
+            if(val) return val;
         })
         return result;
     }

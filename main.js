@@ -3,7 +3,6 @@ window.onload = function () {
     document.querySelector(".stuff").appendChild(Component.listAll());
 
     // List by category Buttons
-
-    Component.CatButts();
-    // document.querySelector(".cat").appendChild(ul);
+    console.log(Component.CatButts())
+    document.querySelector(".cat").appendChild(Component.CatButts());
 }
