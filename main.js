@@ -4,5 +4,5 @@ window.onload = function () {
 
     // List by category Buttons
     console.log(Component.CatButts())
-    document.querySelector(".cat").appendChild(Component.CatButts());
+    // document.querySelector(".cat").appendChild(Component.CatButts());
 }
